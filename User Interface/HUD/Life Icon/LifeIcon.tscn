@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://User Interface/HUD/Life Icon/Sprite/icon-plane.png" type="Texture" id=1]
+
+[node name="LifeIcon" type="TextureRect"]
+margin_right = 18.0
+margin_bottom = 22.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://User Interface/Buttons/Change Scene Texture Button/Change Scene Texture Button.gd" type="Script" id=1]
+[ext_resource path="res://User Interface/Buttons/Change Scene Texture Button/Sprite/Icons_01.png" type="Texture" id=2]
+
+[node name="Change Scene Texture Button" type="TextureButton"]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_scale = Vector2( 6, 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_Change_Scene_Texture_Button_pressed"]

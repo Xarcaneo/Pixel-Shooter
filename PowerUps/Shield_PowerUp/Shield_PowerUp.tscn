@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PowerUps/Shield_PowerUp/Sprite/icon-a-shield.png" type="Texture" id=1]
+[ext_resource path="res://PowerUps/Shield_PowerUp/Shield_PowerUp.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.4115, 17.3528 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "animate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[node name="ShieldPowerUp" type="Area2D"]
+scale = Vector2( 4, 4 )
+collision_layer = 16
+script = ExtResource( 2 )
+chance = 5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.851402, 0.087822 )
+scale = Vector2( 2.32408, 2.30464 )
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="AnimationTimer" type="Timer" parent="Animation"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+anims/animate = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_ShieldPowerUp_body_entered"]
+[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="timeout" from="Animation/AnimationTimer" to="." method="_on_AnimationTimer_timeout"]

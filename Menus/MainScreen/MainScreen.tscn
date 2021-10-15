@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://User Interface/Buttons/Change Scene Button/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Particles/StarField/StarField.tscn" type="PackedScene" id=2]
+[ext_resource path="res://User Interface/Theme/UI_theme.tres" type="Theme" id=3]
+[ext_resource path="res://User Interface/Title/Title.tscn" type="PackedScene" id=4]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarField" parent="Background" instance=ExtResource( 2 )]
+
+[node name="Title" parent="." instance=ExtResource( 4 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -650.0
+margin_top = -1027.7
+margin_right = 650.0
+margin_bottom = -927.699
+text = "PIXEL SHOOTER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -374.5
+margin_top = -642.0
+margin_right = 374.5
+margin_bottom = -246.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_right = 749.0
+margin_bottom = 183.0
+text = "PLAY"
+next_scene_patch = "res://Menus/PlanetSelectScreen/PlanetSelectScreen.tscn"
+
+[node name="CreditsButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 213.0
+margin_right = 749.0
+margin_bottom = 396.0
+text = "CREDITS"
+next_scene_patch = "res://Menus/Credits_screen/Credits_screen.tscn"

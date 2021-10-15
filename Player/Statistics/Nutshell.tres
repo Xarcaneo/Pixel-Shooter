@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Player/Statistics/Statistics.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+max_health = 2.0
+speed = 2700.0
+fire_cooldown = 0.5
+bullet_speed = 2500.0
+bullet_damage = 1.0

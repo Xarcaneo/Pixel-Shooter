@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://User Interface/Buttons/Change Scene Button/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://User Interface/Theme/UI_theme.tres" type="Theme" id=2]
+
+[node name="ChangeSceneButton" type="Button"]
+margin_left = 2.99415
+margin_right = 212.994
+margin_bottom = 35.0
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "BUTTON"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

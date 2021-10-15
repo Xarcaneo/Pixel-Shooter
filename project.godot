@@ -1,0 +1,125 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://Bullet/Bullet.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ContributorClass",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "Area2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Enemies/Enemy.gd"
+}, {
+"base": "PanelContainer",
+"class": "GistItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/GistItem.gd"
+}, {
+"base": "HBoxContainer",
+"class": "InvitationItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+}, {
+"base": "Area2D",
+"class": "Power_up",
+"language": "GDScript",
+"path": "res://PowerUps/PowerUp.gd"
+}, {
+"base": "PanelContainer",
+"class": "RepositoryItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+}, {
+"base": "Resource",
+"class": "Statistics",
+"language": "GDScript",
+"path": "res://Player/Statistics/Statistics.gd"
+}, {
+"base": "Node",
+"class": "state",
+"language": "GDScript",
+"path": "res://Gameplay/GameStates/State.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"ContributorClass": "",
+"Enemy": "",
+"GistItem": "",
+"InvitationItem": "",
+"Power_up": "",
+"RepositoryItem": "",
+"Statistics": "",
+"state": ""
+}
+
+[Config]
+
+Version=""
+
+[application]
+
+config/name="Space Shooter"
+run/main_scene="res://Menus/MainScreen/MainScreen.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://Core/Game.tscn"
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+
+[display]
+
+window/size/width=1440
+window/size/height=3040
+window/size/test_width=384
+window/size/test_height=640
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg" )
+
+[input]
+
+ui_touch={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Coliders"
+2d_physics/layer_3="PlayerBullets"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="PowerUp"
+2d_physics/layer_6="EnemyBullets"
+2d_physics/layer_7="shield"
+
+[physics]
+
+common/enable_pause_aware_picking=true

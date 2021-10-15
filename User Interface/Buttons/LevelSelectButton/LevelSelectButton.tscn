@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://User Interface/Theme/UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://User Interface/Buttons/LevelSelectButton/LevelSelectButton.png" type="Texture" id=2]
+[ext_resource path="res://User Interface/Buttons/LevelSelectButton/LevelSelectButton.gd" type="Script" id=3]
+[ext_resource path="res://User Interface/Buttons/LevelSelectButton/Icons_56.png" type="Texture" id=4]
+
+[node name="LevelSelectButton" type="TextureButton"]
+margin_right = 32.0
+margin_bottom = 32.0
+theme = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.141176, 0.682353, 0.839216, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LockedSprite" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0.141176, 0.682353, 0.839216, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_LevelSelectButton_pressed"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Gameplay/Levels/LevelTemplate.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Heron_enemy/Heron_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gameplay/GameStates/WaveState/WaveState.gd" type="Script" id=3]
+[ext_resource path="res://Gameplay/GameStates/WaveState/Wave.gd" type="Script" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -638.466, 224.593, 0, 0, 0, 0, 1306.85, 234.672, 0, 0, 0, 0, 132.606, 723.522, 0, 0, 0, 0, 1286.69, 1141.82, 0, 0, 0, 0, 107.407, 1091.42, 0, 0, 0, 0, 1301.81, 516.895, 0, 0, 0, 0, 188.042, 204.434, 0, 0, 0, 0, 2148.48, 209.474 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1750.35, 194.355, 0, 0, 0, 0, 137.646, 164.117, 0, 0, 0, 0, 127.566, 1202.29, 0, 0, 0, 0, 1301.81, 1287.97, 0, 0, 0, 0, 384.59, 481.617, 0, 0, 0, 0, 1347.17, 557.212, 0, 0, 0, 0, 389.63, 1051.1, 0, 0, 0, 0, 339.233, 224.593, 0, 0, 0, 0, -446.958, 154.037 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -523.196, 718.343, 0, 0, 0, 0, 1220.64, 763.536, 0, 0, 0, 0, 195.941, 676.871, 0, 0, 0, 0, 551.651, 539.044, 0, 0, 0, 0, 789.614, 503.125, 0, 0, 0, 0, 919.819, 610.882, 0, 0, 0, 0, 1193.8, 938.934, 0, 0, 0, 0, 1225.13, 1127.21, 0, 0, 0, 0, 996.146, 1252.93, 0, 0, 0, 0, 987.167, 1037.42, 0, 0, 0, 0, 785.124, 961.09, 0, 0, 0, 0, 547.162, 1082.32, 0, 0, 0, 0, 354.098, 1055.38, 0, 0, 0, 0, 226.18, 1291.71, 0, 0, 0, 0, 214.913, 1459.46, 0, 0, 0, 0, 372.058, 1679.47, 0, 0, 0, 0, 610.02, 1778.24, 0, 0, 0, 0, 1407.44, 1602.84, 0, 0, 0, 0, 135.465, 354.331, 0, 0, 0, 0, 1758.24, 223.299, 0, 0, 0, 0, 671.104, 107.724, 0, 0, 0, 0, -640.646, 203.14 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2443.64, 1432.82, 0, 0, 0, 0, 115.307, 1704.97, 0, 0, 0, 0, 155.624, 132.585, 0, 0, 0, 0, 1254.28, 233.378, 0, 0, 0, 0, -455.848, 1611.82 )
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="WaveState" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Wave" type="Node2D" parent="WaveState"]
+script = ExtResource( 4 )
+
+[node name="EnemyFollower" type="Path2D" parent="WaveState/Wave"]
+curve = SubResource( 1 )
+
+[node name="EnemyContainer" type="Node2D" parent="WaveState/Wave"]
+
+[node name="Heron_enemy2" parent="WaveState/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy3" parent="WaveState/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy4" parent="WaveState/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy5" parent="WaveState/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy6" parent="WaveState/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="SpawnTimer" type="Timer" parent="WaveState/Wave"]
+
+[node name="Wave2" type="Node2D" parent="WaveState"]
+script = ExtResource( 4 )
+wave_speed = 1000.0
+spawn_speed = 2.0
+
+[node name="EnemyContainer" type="Node2D" parent="WaveState/Wave2"]
+
+[node name="Heron_enemy" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy2" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy3" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy4" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy5" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy6" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="Heron_enemy7" parent="WaveState/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 1748.77, 201.588 )
+
+[node name="SpawnTimer" type="Timer" parent="WaveState/Wave2"]
+
+[node name="EnemyFollower" type="Path2D" parent="WaveState/Wave2"]
+curve = SubResource( 2 )
+
+[node name="WaveState2" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Wave" type="Node2D" parent="WaveState2"]
+script = ExtResource( 4 )
+
+[node name="EnemyFollower" type="Path2D" parent="WaveState2/Wave"]
+curve = SubResource( 3 )
+
+[node name="EnemyContainer" type="Node2D" parent="WaveState2/Wave"]
+
+[node name="Heron_enemy2" parent="WaveState2/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy3" parent="WaveState2/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="Heron_enemy4" parent="WaveState2/Wave/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( -640.366, 231.125 )
+
+[node name="SpawnTimer" type="Timer" parent="WaveState2/Wave"]
+
+[node name="Wave2" type="Node2D" parent="WaveState2"]
+script = ExtResource( 4 )
+wave_speed = 750.0
+spawn_speed = 0.5
+
+[node name="EnemyFollower" type="Path2D" parent="WaveState2/Wave2"]
+curve = SubResource( 4 )
+
+[node name="EnemyContainer" type="Node2D" parent="WaveState2/Wave2"]
+
+[node name="Heron_enemy2" parent="WaveState2/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 2470.94, 1424.85 )
+
+[node name="Heron_enemy3" parent="WaveState2/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 2470.94, 1424.85 )
+
+[node name="Heron_enemy4" parent="WaveState2/Wave2/EnemyContainer" instance=ExtResource( 2 )]
+position = Vector2( 2470.94, 1424.85 )
+
+[node name="SpawnTimer" type="Timer" parent="WaveState2/Wave2"]
+
+[connection signal="timeout" from="WaveState/Wave/SpawnTimer" to="WaveState/Wave" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="WaveState/Wave2/SpawnTimer" to="WaveState/Wave2" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="WaveState2/Wave/SpawnTimer" to="WaveState2/Wave" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="WaveState2/Wave2/SpawnTimer" to="WaveState2/Wave2" method="_on_SpawnTimer_timeout"]

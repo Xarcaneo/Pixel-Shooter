@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://User Interface/HUD/HUD.gd" type="Script" id=1]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.07
+anchor_top = 0.015
+anchor_right = 0.07
+anchor_bottom = 0.03
+margin_left = 0.24
+margin_top = -0.0400002
+margin_right = 26.8
+margin_bottom = -66.2
+rect_scale = Vector2( 7, 7 )
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
